@@ -1,0 +1,251 @@
+CASE ID: PHISH-001
+CASE TYPE: Suspected Phishing Email
+STATUS: Under Investigation
+
+========================================
+1. INITIAL ALERT
+========================================
+
+An employee reported a suspicious email claiming to be from Microsoft Security.
+
+The message stated that the user's Microsoft 365 password would expire and that the account would be suspended unless immediate verification was completed.
+
+========================================
+2. INITIAL OBSERVATIONS
+========================================
+
+Finding 1 - Suspicious Sender Domain
+
+Displayed Sender:
+Microsoft Security
+
+Sender Address:
+security@microsoft-support-verification.com
+
+Observation:
+The message claims to originate from Microsoft Security, but the sender domain does not match the expected official Microsoft domain.
+
+Assessment:
+Potential brand impersonation.
+
+----------------------------------------
+
+Finding 2 - Reply-To Mismatch
+
+Reply-To:
+accountverify@outlook-security-help.com
+
+Observation:
+The Reply-To domain differs from the sender domain.
+
+Assessment:
+This inconsistency increases suspicion and requires further investigation.
+
+----------------------------------------
+
+Finding 3 - Urgency / Social Engineering
+
+Subject:
+URGENT: Your Microsoft 365 Password Expires Today
+
+Message:
+The recipient is warned that the account will be suspended unless immediate action is taken.
+
+Assessment:
+The message uses urgency and fear to pressure the recipient into acting quickly.
+
+----------------------------------------
+
+Finding 4 - Suspicious Verification URL
+
+URL:
+hxxps://microsoft-login-verification[.]com/verify
+
+Observation:
+The URL uses Microsoft-related keywords but does not use the official Microsoft domain.
+
+Assessment:
+Potential credential-phishing URL.
+
+========================================
+3. EMAIL AUTHENTICATION
+========================================
+
+SPF: PASS
+DKIM: PASS
+DMARC: PASS
+
+Assessment:
+
+Passing SPF, DKIM and DMARC does not prove that the email is legitimate.
+
+The results indicate that the message was authenticated for the sending domain, but they do not prove that the domain belongs to Microsoft.
+
+========================================
+4. EXTRACTED IoCs
+========================================
+
+Sender Domain:
+microsoft-support-verification[.]com
+
+Reply-To Domain:
+outlook-security-help[.]com
+
+URL Domain:
+microsoft-login-verification[.]com
+
+URL:
+hxxps://microsoft-login-verification[.]com/verify
+
+========================================
+5. THREAT INTELLIGENCE
+========================================
+
+Pending investigation.
+
+========================================
+6. ANALYST VERDICT
+========================================
+
+Verdict: SUSPICIOUS
+
+The email contains multiple phishing indicators, including Microsoft
+brand impersonation, a non-official sender domain, a mismatched
+Reply-To domain, urgency-based social engineering, and a suspicious
+account-verification URL.
+
+Although SPF, DKIM and DMARC pass, these results authenticate the
+sending domain and do not establish that Microsoft sent the message.
+
+Because PHISH-001 uses fictional training infrastructure and lacks
+independent threat-intelligence confirmation, the email is classified
+as suspicious rather than conclusively malicious.
+
+========================================
+7. EVIDENCE CORRELATION
+========================================
+
+Email Content:
+The message impersonates Microsoft Security and pressures the recipient
+to verify an account immediately to avoid suspension.
+
+Sender Identity:
+The sender uses a Microsoft-themed domain that does not match the
+expected official Microsoft domain.
+
+Reply-To:
+The Reply-To address uses a different domain from the sender,
+increasing suspicion.
+
+URL:
+The verification link uses a Microsoft-themed domain rather than the
+expected official Microsoft domain.
+
+Email Authentication:
+SPF, DKIM and DMARC are shown as PASS in the training sample.
+These results authenticate the sending domain but do not establish
+that the sender is actually Microsoft.
+
+IoCs:
+Sender domain, Reply-To domain, URL domain and full URL were extracted
+for investigation.
+
+Threat Intelligence:
+VirusTotal, urlscan and AbuseIPDB were studied using separate safe
+baseline/test indicators to understand reputation, domain
+infrastructure, relationships and IP abuse reporting.
+
+The fictional PHISH-001 domains were not treated as real malicious
+infrastructure, and no threat-intelligence results were fabricated
+for them.
+
+Overall Correlation:
+Multiple independent characteristics of the email are consistent with
+a credential-phishing scenario: brand impersonation, urgency,
+sender/Reply-To inconsistency and a suspicious account-verification
+URL.
+
+A final analyst verdict will be assigned after considering the
+combined evidence and the limitations of the training dataset.
+
+========================================
+8. RESPONSE, CONTAINMENT & ESCALATION
+========================================
+
+Initial User Exposure:
+The reporting user confirmed that the suspicious email was opened,
+but the embedded URL was not clicked.
+
+No attachment was downloaded, no reply was sent, and no credentials
+were submitted.
+
+Assessment:
+No evidence of credential exposure or account compromise was identified
+for the reporting user.
+
+----------------------------------------
+Campaign Scope
+----------------------------------------
+
+Total matching messages identified: 12
+
+Successfully delivered: 9
+Quarantined: 3
+Known link clicks: 0
+
+Assessment:
+The activity affected multiple mailboxes and is therefore treated as
+a broader phishing campaign rather than an isolated email.
+
+----------------------------------------
+Recommended Containment
+----------------------------------------
+
+1. Remove or quarantine the 9 delivered messages where supported.
+
+2. Notify affected users not to click links, download attachments,
+   reply to the sender, or provide credentials.
+
+3. Block confirmed malicious/suspicious indicators according to
+   organizational security procedures.
+
+4. Search the email environment for additional messages containing
+   matching sender addresses, domains, URLs, or subjects.
+
+5. Continue monitoring for additional campaign activity.
+
+----------------------------------------
+Escalation Criteria
+----------------------------------------
+
+Escalation to L2 / Incident Response is recommended if evidence shows
+that a user:
+
+- Clicked the phishing URL.
+- Submitted credentials.
+- Downloaded or executed a suspicious attachment.
+- Shows suspicious authentication activity.
+- Shows evidence of unauthorized account activity.
+
+----------------------------------------
+Credential Exposure Response
+----------------------------------------
+
+If credentials were submitted to the suspected phishing site, the
+incident should be treated as a potential credential compromise.
+
+Recommended actions, subject to organizational authorization and
+incident-response procedures:
+
+- Escalate immediately to L2 / Incident Response.
+- Initiate or request a password reset.
+- Revoke active sessions/tokens where appropriate.
+- Review MFA activity and configuration.
+- Investigate recent sign-in history.
+- Review suspicious source IP addresses, locations and devices.
+- Check for unauthorized mailbox rules or account changes.
+- Continue campaign-wide containment and monitoring.
+
+Note:
+An L1 analyst should only perform containment actions that are
+authorized by the organization's procedures and access permissions.

@@ -1,0 +1,27 @@
+CASE ID: PHISH-001
+
+INDICATORS OF COMPROMISE
+
+1. Sender Domain
+microsoft-support-verification[.]com
+
+Source:
+From / Return-Path
+
+2. Reply-To Domain
+outlook-security-help[.]com
+
+Source:
+Reply-To
+
+3. URL Domain
+microsoft-login-verification[.]com
+
+Source:
+Email body
+
+4. URL
+hxxps://microsoft-login-verification[.]com/verify
+
+Source:
+Email body

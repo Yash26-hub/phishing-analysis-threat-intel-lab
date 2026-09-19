@@ -1,0 +1,26 @@
+CASE ID: PHISH-001
+
+
+From: Microsoft Security <security@microsoft-support-verification.com>
+Reply-To: accountverify@outlook-security-help.com
+Return-Path: <bounce@microsoft-support-verification.com>
+Subject: URGENT: Your Microsoft 365 Password Expires Today
+
+Authentication-Results:
+	spf=pass
+	dkim=pass
+	dmarc=pass
+Message:
+
+Dear User,
+
+Your Microsoft 365 account password expires today.
+Failure to verify your account will result in account suspension.
+
+Verify your account immediately:
+
+hxxps://microsoft-login-verification[.]com/verify
+
+Microsoft Security Team
+
+Training Source IP: 192.0.2.25

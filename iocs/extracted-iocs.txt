@@ -1,0 +1,18 @@
+SOC Phishing IoC Extraction Results
+===================================
+
+EMAIL ADDRESSES
+accountverify@outlook-security-help.com
+bounce@microsoft-support-verification.com
+security@microsoft-support-verification.com
+
+URLS
+hxxps://microsoft-login-verification[.]com/verify
+
+DOMAINS
+microsoft-login-verification[.]com
+microsoft-support-verification[.]com
+outlook-security-help[.]com
+
+IPv4 ADDRESSES
+192.0.2.25
