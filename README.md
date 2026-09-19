@@ -696,7 +696,39 @@ phishing-analysis-lab/
 
 \## Skills Demonstrated
 
+## Investigation Evidence
 
+The following screenshots document key stages of the lab workflow.
+
+### Python IoC Extraction
+
+The custom Python utility automatically extracts email addresses, URLs, domains and validated IPv4 addresses from the phishing training sample.
+
+![Python IoC Extractor](screenshots/01-ioc-extractor-output.png)
+
+### Automated IoC Report
+
+Extracted indicators are automatically exported into a structured text artifact for further investigation and documentation.
+
+![Extracted IoCs](screenshots/02-extracted-iocs.png)
+
+### VirusTotal Analysis
+
+VirusTotal was used as a safe baseline example to study domain reputation, vendor detections, passive DNS relationships and infrastructure context.
+
+The screenshot below analyzes the legitimate `microsoft.com` domain and is included to demonstrate threat-intelligence methodology. It is not presented as evidence that the fictional PHISH-001 infrastructure is malicious.
+
+![VirusTotal Analysis](screenshots/03-virustotal-analysis.png)
+
+### urlscan Analysis
+
+urlscan was used to study URL behavior, redirects, HTTP activity, contacted infrastructure, IP/ASN information and page behavior.
+
+The screenshot below uses the legitimate Microsoft website as a safe baseline example and demonstrates the investigation methodology rather than evidence against PHISH-001.
+
+![urlscan Analysis](screenshots/04-urlscan-analysis.png)
+
+---
 
 \### SOC Analysis
 

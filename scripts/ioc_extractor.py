@@ -3,7 +3,7 @@ import sys
 import ipaddress
 from urllib.parse import urlparse
 
-print("SOC Phishing Ioc Extractor")
+print("SOC Phishing IoC Extractor")
 print("--------------------------")
 
 
